@@ -3,8 +3,8 @@ import './App.css';
 
 function App() {
   return (
-    <>React app
-    </>
+    <div className = 'bg-red-400'>React app
+    </div>
   );
 }
 
