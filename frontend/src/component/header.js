@@ -1,11 +1,10 @@
 import React from 'react'
+import App from '../App';
 
-const header = () => {
+const Header = () => {
   return (
-    <div>
-      
-    </div>
+    <div> mwadali is a genius </div>
   )
 }
 
-export default header
+export default Header;
