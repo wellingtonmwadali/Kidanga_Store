@@ -1,1 +1,2 @@
-# Complete fullstack responsive MERN app using React, Redux , MongoDb and Nodejs
+# Complete fullstack responsive MERN app using React, Redux ,TailwindCSS, MongoDb and Nodejs
+still in development
