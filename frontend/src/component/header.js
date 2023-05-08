@@ -1,9 +1,17 @@
 import React from 'react'
-import App from '../App';
+import logo from '../assets/logo.png'
 
 const Header = () => {
   return (
-    <div> mwadali is a genius </div>
+    <header className=''>
+      {/*for desktop view */}
+      <div className=''>
+        <div className=''>
+          <img src={logo}/>
+        </div>
+      </div>
+      {/*for mobile view*/}
+    </header>
   )
 }
 
