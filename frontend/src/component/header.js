@@ -11,7 +11,7 @@ const Header = () => {
       <div className='flex items-center'>
        <Link to={""}>
        <div className='h-12'>
-          <img src={logo} className = 'h-full'/>
+          <img src={logo} className = 'h-12'/>
         </div>
        </Link>
       </div>
