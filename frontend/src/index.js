@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from  'react-router-dom'
-
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from  'react-router-dom';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import About from './pages/About';
+import Contact from './pages/Contact';
+{/*route links*/}
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path = "/" element = {<App/>}>
@@ -12,8 +16,6 @@ const router = createBrowserRouter(
         <Route path ="menu" element = {<Menu/>}/>
         <Route path ="about" element = {<About/>}/>
         <Route path ="contact" element = {<Contact/>}/>
-
-
     </Route>
   )
 )
