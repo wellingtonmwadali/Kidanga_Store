@@ -6,7 +6,7 @@ import {BsCart4} from 'react-icons/bs'
 const Header = () => {
   return (
     /*logo*/
-    <header className='fixed shadow-md w-full h-12 px-2 md:px-4'>
+    <header className='fixed shadow-md w-full h-14 px-2 md:px-4'>
       {/*for desktop view */}
       <div className='flex items-center justify-between'>
        <Link to={""}>

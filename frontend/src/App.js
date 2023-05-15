@@ -1,13 +1,13 @@
-import { Outlet } from 'react-router-dom';
 import Header from './component/header.js';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div className = ''>
       <Header/>
-      <main>
-        <Outlet/>
-      </main>
+      <main className=''>
+        <Outlet />
+        </main>
     </div>
   );
 }
