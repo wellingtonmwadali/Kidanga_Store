@@ -23,7 +23,11 @@ const Header = () => {
           <Link to = {"about"}>About</Link>
           <Link to = {"contact"}>Contact</Link>
         </nav>
-        <div className='text-2xl'><BsCart4/></div>
+        <div className='text-2xl relative'><BsCart4/>
+        {/*orders*/}
+        <div className='absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>0
+        </div>
+        </div>
         <div className='text-2xl'><FaRegUser/></div>
        </div>
       </div>
