@@ -25,12 +25,13 @@ const Header = () => {
         </nav>
         <div className='text-2xl relative'><BsCart4/>
         {/*orders*/}
-        <div className='absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>0
-        </div>
+        <div className='absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>0</div>
         </div>
         <div className='text-1xl'>
-          <div className='border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer'>
-          <FaRegUser/>
+          <div className='border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer'><FaRegUser/></div>
+          <div className='absolute right-2 py-2 px-2 bg-white shadow drop-shadow-md'>
+            <p className='whitespace-nowrap cursor-pointer'>New Product</p>
+            <p className='whitespace-nowrap cursor-pointer'>Login</p>
           </div>
           </div>
           </div>
