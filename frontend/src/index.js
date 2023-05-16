@@ -12,11 +12,11 @@ import Contact from './pages/Contact';
 {/*route links*/}
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path = "/" element = {<App/>}>
+    <Route path = '/' element = {<App/>}>
       <Route index element = {<Home/>}/>
-        <Route path ="menu" element = {<Menu/>}/>
-        <Route path ="about" element = {<About/>}/>
-        <Route path ="contact" element = {<Contact/>}/>
+      <Route path ='menu' element = {<Menu/>}/>
+      <Route path ='about' element = {<About/>}/>
+      <Route path ='contact' element = {<Contact/>}/>
     </Route>
   )
 )
