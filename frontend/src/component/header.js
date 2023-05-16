@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import {FaRegUser} from 'react-icons/fa';
 import {BsCart4} from 'react-icons/bs'
+
 const Header = () => {
   return (
     /*logo*/
