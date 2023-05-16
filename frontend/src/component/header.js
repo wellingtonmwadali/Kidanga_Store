@@ -28,9 +28,13 @@ const Header = () => {
         <div className='absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center'>0
         </div>
         </div>
-        <div className='text-2xl'><FaRegUser/></div>
-       </div>
-      </div>
+        <div className='text-1xl'>
+          <div className='border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer'>
+          <FaRegUser/>
+          </div>
+          </div>
+          </div>
+          </div>
       {/*for mobile view*/}
     </header>
   )
