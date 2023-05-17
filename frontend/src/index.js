@@ -9,6 +9,7 @@ import Menu from './pages/Menu';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import Newproduct from './pages/Newproduct';
 
 {/*route links*/}
 const router = createBrowserRouter(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path ='about' element = {<About/>}/>
       <Route path ='contact' element = {<Contact/>}/>
       <Route path ='login' element = {<Login/>}/>
+      <Route path ='newproduct' element = {<Newproduct/>}/>
     </Route>
   )
 )
