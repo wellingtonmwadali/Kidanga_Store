@@ -34,8 +34,8 @@ const Header = () => {
               0
             </div>
           </div>
-          <div className="text-1xl">
-            <div className="border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer"onClick = {handleShowMenu}>
+          <div className="text-1xl"onClick = {handleShowMenu}>
+            <div className="border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer">
               <FaRegUser />
             </div>
             {showMenu && (
