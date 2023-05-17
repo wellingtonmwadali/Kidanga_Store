@@ -5,7 +5,7 @@ function App() {
   return (
     <div className = ''>
       <Header/>
-      <main className=''>
+      <main className='pt-14'>
         <Outlet />
         </main>
     </div>

@@ -40,8 +40,8 @@ const Header = () => {
             </div>
             {showMenu && (
               <div className="absolute right-2 py-2 px-2 bg-white shadow drop-shadow-md">
-                <p className="whitespace-nowrap cursor-pointer">New Product</p>
-                <p className="whitespace-nowrap cursor-pointer">Login</p>
+               <p><Link className="whitespace-nowrap cursor-pointer">New Product</Link></p>
+                <p><Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link></p>
               </div>
             )}
           </div>
