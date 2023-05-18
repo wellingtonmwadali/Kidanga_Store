@@ -11,11 +11,11 @@ const Header = () => {
   }
   return (
     /*logo*/
-    <header className="fixed shadow-md w-full h-14 px-2 md:px-4">
+    <header className="fixed shadow-md w-full h-14 px-2 md:px-4 bg-white">
       {/*for desktop view */}
       <div className="flex items-center justify-between">
         <Link to={""}>
-          <div className="h-12">
+          <div className="h-10">
             <img src={logo} className="h-full" />
           </div>
         </Link>
@@ -39,9 +39,9 @@ const Header = () => {
               <FaRegUser />
             </div>
             {showMenu && (
-              <div className="absolute right-2 py-2 px-2 bg-white shadow drop-shadow-md">
-               <p><Link to={"newproduct"}className="whitespace-nowrap cursor-pointer">New Product</Link></p>
-                <p><Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link></p>
+              <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col">
+               <Link to={"newproduct"}className="whitespace-nowrap cursor-pointer">New Product</Link>
+                <Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link>
               </div>
             )}
           </div>
