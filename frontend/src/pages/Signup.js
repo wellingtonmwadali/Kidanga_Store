@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
 
 const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => {
+    setShowPassword(preve => !preve)
+  }
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const handleShowConfirmPassword = () => {
+    setShowConfirmPassword(preve => !preve)
+  }
   return (
     <div className="p-3 md:p-4">
       <div className="w-full max-w-sm bg-white m-auto flex items-center flex-col p-4">
@@ -30,19 +38,23 @@ const Signup = () => {
             className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded focus-within:outline-red-300"
           />
           <label htmlFor='password'>Password</label>
-          <div className='flex px-2 py-1 rounded bg-slate-200 mt-1 mb-2 outline focus-within:outline-red-300'>
+          <div className='flex px-2 py-1 rounded bg-slate-200 mt-1 mb-2 focus-within:outline focus-within:outline-red-300'>
           <input
-          type={"password"}
+          type={showPassword ? "text" : "password"}
           id='password'
           name='password '
           className=" w-full bg-slate-200 border-none outline-none"/>
-          <span className='flex'><BiShow/><BiHide/></span>
+          <span className='flex cursor-pointer 'onClick = {handleShowPassword}>{showPassword ? <BiShow/> : <BiHide/>}</span>
           </div>
           <label  htmlFor='confirmPassword'>Confirm Password</label>
+          <div className='flex px-2 py-1 rounded bg-slate-200 mt-1 mb-2 focus-within:outline focus-within:outline-red-300'>
           <input
-          type='password'
+          type={showConfirmPassword  ? "text" : "password"}
           id='confirmPassword'
-          className="mt-1 mb-2 w-full bg-slate-200 px-2 py-1 rounded"/>
+          name='confirmPassword '
+          className=" w-full bg-slate-200 border-none outline-none"/>
+          <span className='flex cursor-pointer 'onClick = {handleShowConfirmPassword }>{showPassword ? <BiShow/> : <BiHide/>}</span>
+          </div>
         </form>
       </div>
     </div>
