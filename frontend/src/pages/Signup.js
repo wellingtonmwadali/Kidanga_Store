@@ -19,7 +19,7 @@ const Signup = () => {
           {/*animated signup gif in form*/}
           <img src={loginAnimation} className="w-full" />
         </div>
-        <form className="w-full py-3">
+        <form className="w-full py-3 flex flex-col">
           <label htmlFor="firstName">First Name</label>
           <input
             type={"text"}
@@ -55,6 +55,7 @@ const Signup = () => {
           className=" w-full bg-slate-200 border-none outline-none"/>
           <span className='flex cursor-pointer 'onClick = {handleShowConfirmPassword }>{showPassword ? <BiShow/> : <BiHide/>}</span>
           </div>
+          <button className='w-full max-w-[150px] m-auto bg-red-400 hover:bg-red-600 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full'>Signup</button>
         </form>
       </div>
     </div>
