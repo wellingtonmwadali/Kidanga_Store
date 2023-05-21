@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -55,8 +56,9 @@ const Signup = () => {
           className=" w-full bg-slate-200 border-none outline-none"/>
           <span className='flex cursor-pointer 'onClick = {handleShowConfirmPassword }>{showPassword ? <BiShow/> : <BiHide/>}</span>
           </div>
-          <button className='w-full max-w-[150px] m-auto bg-red-400 hover:bg-red-600 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full'>Signup</button>
+          <button className='w-full max-w-[150px] m-auto bg-red-500 hover:bg-red-600 cursor-pointer text-white text-xl font-medium text-center py-1 rounded-full'>Signup</button>
         </form>
+        <p className='text-sm mt-1'>Already have account?<Link to={"login"}className='font-medium text-red-600'>Login</Link></p>
       </div>
     </div>
   );
