@@ -17,10 +17,6 @@ const Login = () => {
     confirmPassword: "",
   });
   console.log(data);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const handleShowConfirmPassword = () => {
-    setShowConfirmPassword((preve) => !preve);
-  };
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setData((preve) => {
@@ -32,13 +28,9 @@ const Login = () => {
   };
   const handleSubmit = (e) =>{
     e.preventDefault()
-    const {firstName,lastName,email,password,confirmPassword} = data
-    if (firstName && lastName && email && password && confirmPassword)
-    if(password === confirmPassword)
+    const {email,password} = data
+    if (email && password)
     alert("success")
-    else{
-      alert("password and confirm password not equal")
-    }
     else{
       alert("please enter the required fields")
     }
