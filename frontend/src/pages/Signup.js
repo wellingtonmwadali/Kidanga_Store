@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; 
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword((preve) => !preve);
@@ -33,9 +34,11 @@ const Signup = () => {
     e.preventDefault()
     const {firstName,lastName,email,password,confirmPassword} = data
     if (firstName && lastName && email && password && confirmPassword)
-    if(password === confirmPassword)
+    if(password === confirmPassword){
     alert("success")
-    else{
+    navigate("/login")
+    }
+    else{  
       alert("password and confirm password not equal")
     }
     else{
