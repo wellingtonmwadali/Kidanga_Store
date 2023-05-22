@@ -16,6 +16,7 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    image : "",
   });
   console.log(data);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -34,6 +35,13 @@ const Signup = () => {
   const handleUploadProfilePhoto = async (e) => {
     const data = await imagetoBase64(e.target.files[0])
     console.log(data)
+
+    setData((preve) =>{
+      return{
+        ...preve,
+        image : data
+      }
+    })
   }
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -56,7 +64,7 @@ const Signup = () => {
         {/*<h1 className='text-center text-2xl'>Signup</h1>*/}
         <div className="w-20 overflow-hidden rounded-full drop-shadow-md shadow-md relative ">
           {/*animated signup gif in form*/}
-          <img src={loginAnimation} className="w-full" />
+          <img src={data.image ? data.image : loginAnimation} className="w-full" />
           <label htmlFor="profilePhoto">
           <div className="absolute bottom-0 h-1/3 bg-slate-400 w-full text-center cursor-pointer">
             <p className="text-sm p-1 text-white">upload</p>
