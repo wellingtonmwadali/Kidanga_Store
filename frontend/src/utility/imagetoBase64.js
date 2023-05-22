@@ -1,4 +1,4 @@
-{/*convert profile picture to base 64 */}
+{/*convert profile picture to base 64 so as to appear as profile pic*/}
 function imagetoBase64(file){
     const reader= new FileReader()
     reader.readAsDataURL(file)
