@@ -49,9 +49,15 @@ const Signup = () => {
     <div className="p-3 md:p-4">
       <div className="w-full max-w-sm bg-white m-auto flex items-center flex-col p-4">
         {/*<h1 className='text-center text-2xl'>Signup</h1>*/}
-        <div className="w-20 overflow-hidden rounded-full drop-shadow-md shadow-md">
+        <div className="w-20 overflow-hidden rounded-full drop-shadow-md shadow-md relative">
           {/*animated signup gif in form*/}
           <img src={loginAnimation} className="w-full" />
+          <label htmlFor="profilePhoto">
+          <div className="absolute bottom-0 h-1/3 bg-slate-400 w-full text-center">
+            <p className="text-sm p-1 text-white">upload</p>
+          </div>
+          <input type={"file"} id= "profilePhoto" className="hidden"/>
+          </label>
         </div>
         <form className="w-full py-3 flex flex-col"onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
