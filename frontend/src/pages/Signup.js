@@ -115,7 +115,7 @@ const Signup = () => {
         </form>
         <p className="text-sm mt-1">
           Already have account?
-          <Link to={"login"} className="font-medium text-red-600 underline">
+          <Link to={"/login"} className="font-medium text-red-600 underline">
             Login
           </Link>
         </p>
