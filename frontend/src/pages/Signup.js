@@ -3,7 +3,7 @@ import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom'; 
 import {imagetoBase64} from '../utility/imagetoBase64';
-
+{/*show password/hide password*/}
 const Signup = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +19,7 @@ const Signup = () => {
     image : "",
   });
   console.log(data);
+
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const handleShowConfirmPassword = () => {
     setShowConfirmPassword((preve) => !preve);
@@ -32,6 +33,7 @@ const Signup = () => {
       };
     });
   };
+  {/**handle uploading profile pic */}
   const handleUploadProfilePhoto = async (e) => {
     const data = await imagetoBase64(e.target.files[0])
     console.log(data)
@@ -43,6 +45,7 @@ const Signup = () => {
       }
     })
   }
+  {/**handle submit for signup to check for eligibility */}
   const handleSubmit = (e) =>{
     e.preventDefault()
     const {firstName,lastName,email,password,confirmPassword} = data
@@ -62,16 +65,18 @@ const Signup = () => {
     <div className="p-3 md:p-4">
       <div className="w-full max-w-sm bg-white m-auto flex items-center flex-col p-4">
         {/*<h1 className='text-center text-2xl'>Signup</h1>*/}
-        <div className="w-20 overflow-hidden rounded-full drop-shadow-md shadow-md relative ">
+        <div className="w-20 h-20 overflow-hidden rounded-full drop-shadow-md shadow-md relative ">
           {/*animated signup gif in form*/}
-          <img src={data.image ? data.image : loginAnimation} className="w-full" />
+          <img src={data.image ? data.image : loginAnimation} className="w-full h-full" />
+          {/* upload profile pic */}
           <label htmlFor="profilePhoto">
-          <div className="absolute bottom-0 h-1/3 bg-slate-400 w-full text-center cursor-pointer">
+          <div className="absolute bottom-0 h-1/3 bg-slate-500 bg-opacity-25 w-full text-center cursor-pointer">
             <p className="text-sm p-1 text-white">upload</p>
           </div>
           <input type={"file"} id= "profilePhoto" className="hidden" onChange= {handleUploadProfilePhoto}/>
           </label>
         </div>
+        {/**input form */}
         <form className="w-full py-3 flex flex-col"onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
           <input
@@ -110,6 +115,7 @@ const Signup = () => {
               value={data.password}
               onChange={handleOnChange}
             />
+            {/**hide and show react icons */}
             <span className="flex cursor-pointer " onClick={handleShowPassword}>
               {showPassword ? <BiShow /> : <BiHide />}
             </span>

@@ -26,6 +26,7 @@ const Login = () => {
       };
     });
   };
+  {/**handle submit */}
   const handleSubmit = (e) =>{
     e.preventDefault()
     const {email,password} = data
@@ -63,6 +64,7 @@ const Login = () => {
             value={data.password}
             onChange={handleOnChange}
           />
+          {/**react icons for hide and show */}
           <span className="flex cursor-pointer " onClick={handleShowPassword}>
             {showPassword ? <BiShow /> : <BiHide />}
           </span>
