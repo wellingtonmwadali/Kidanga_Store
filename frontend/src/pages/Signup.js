@@ -2,7 +2,10 @@ import React, {useState} from 'react'
 import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom'; 
-import {imagetoBase64} from '../utility/imagetoBase64';
+import {imagetoBase64} from '../utility/imagetoBase64'; 
+
+
+
 {/*show password/hide password*/}
 const Signup = () => {
   const navigate = useNavigate();
@@ -45,18 +48,29 @@ const Signup = () => {
       }
     })
   }
-  {/**handle submit for signup to check for eligibility */}
+  {/**handle submit for signup to check for eligibility
+    **async js
+    **fetch api
+  */}
   console.log(process.env.REACT_APP_SERVER_DOMAIN)
   const handleSubmit = async(e) =>{
     e.preventDefault()
     const {firstName,lastName,email,password,confirmPassword} = data
     if (firstName && lastName && email && password && confirmPassword)
     if(password === confirmPassword){
-      const fetchData = await fetch("")
+      const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`,{
+        method : "POST",
+        header : {
+          "content-type" : "application/json"
+        },
+        body :JSON.stringify(data)  
+      })
+      const data  = await fetchData.JSON
+      console.log(data)
     alert("success")
     navigate("/login")
     }
-    else{  
+    else{
       alert("password and confirm password not equal")
     }
     else{
