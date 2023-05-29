@@ -34,7 +34,7 @@ const Signup = () => {
     });
   };
   {/**handle uploading profile pic */}
-  const handleUploadProfilePhoto = async (e) => {
+  const handleUploadProfilePhoto = async(e) => {
     const data = await imagetoBase64(e.target.files[0])
     console.log(data)
 
@@ -46,11 +46,13 @@ const Signup = () => {
     })
   }
   {/**handle submit for signup to check for eligibility */}
-  const handleSubmit = (e) =>{
+  console.log(process.env.REACT_APP_SERVER_DOMAIN)
+  const handleSubmit = async(e) =>{
     e.preventDefault()
     const {firstName,lastName,email,password,confirmPassword} = data
     if (firstName && lastName && email && password && confirmPassword)
     if(password === confirmPassword){
+      const fetchData = await fetch("")
     alert("success")
     navigate("/login")
     }
