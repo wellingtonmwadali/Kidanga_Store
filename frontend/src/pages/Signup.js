@@ -8,11 +8,13 @@ import {imagetoBase64} from '../utility/imagetoBase64';
 
 {/*show password/hide password*/}
 const Signup = () => {
+  //handle show password
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => {
     setShowPassword((preve) => !preve);
   };
+  //signup data
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -21,8 +23,9 @@ const Signup = () => {
     confirmPassword: "",
     image : "",
   });
-  console.log(data);
 
+  console.log(data);
+//handle confirm password to be visible
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const handleShowConfirmPassword = () => {
     setShowConfirmPassword((preve) => !preve);
@@ -49,7 +52,7 @@ const Signup = () => {
     })
   }
   {/**handle submit for signup to check for eligibility
-    **async js
+    **check also if password is same to confirm password
     **fetch api
   */}
   console.log(process.env.REACT_APP_SERVER_DOMAIN)
@@ -58,15 +61,17 @@ const Signup = () => {
     const {firstName,lastName,email,password,confirmPassword} = data
     if (firstName && lastName && email && password && confirmPassword)
     if(password === confirmPassword){
+      //callback function for fetch
       const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`,{
         method : "POST",
-        header : {
+        headers : {
           "content-type" : "application/json"
         },
-        body :JSON.stringify(data)  
+        body : JSON.stringify(data)
       })
       const dataRes  = await fetchData.json()
       console.log(dataRes)
+
       alert("success")
     //navigate("/login")
     }
@@ -157,6 +162,7 @@ const Signup = () => {
             Signup
           </button>
         </form>
+        {/**link  to login page */}
         <p className="text-sm mt-1">
           Already have account?
           <Link to={"/login"} className="font-medium text-red-600 underline">
