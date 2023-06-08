@@ -30,6 +30,9 @@ const userSchema = mongoose.Schema({
     image : String,
 })
 
+//model
+const userModel = mongoose.model("user", userSchema)
+
 
 
 //fetch javascript api
