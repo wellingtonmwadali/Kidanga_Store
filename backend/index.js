@@ -14,6 +14,21 @@ const PORT = process.env.PORT || 8080
 console.log(process.env.MONGODB_URL)
 //mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGODB_URL)
+    .then(()=> console.log("connected to Database successfully"))
+    .catch((error)=> console.log("error in connection to Database"))
+
+//Schema
+const userSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: {
+        type: String,
+        unique: true,
+    },
+    password: String,
+    confirmPassword: String,
+    image : String,
+})
 
 
 
