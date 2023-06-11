@@ -2,6 +2,7 @@
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
+const { reset } = require("nodemon")
 const dotenv = require("dotenv").config()
 
 //express api
@@ -32,14 +33,26 @@ const userSchema = mongoose.Schema({
 
 //model
 const userModel = mongoose.model("user", userSchema)
-
-
-
 //fetch javascript api
 app.get("/",(req, res)=>{
     res.send("Server is running")
 })
 app.post("/signup", (req, res)=>{
     console.log(req.body)
+//check if email is already in database or new email
+    const {email} = req.body
+
+    userModel.findOne({email : email},(error,result)=>{
+    console.log(result)
+    console.log(error)
+    if(result){
+        res.send({message : "Email already registered"})
+    }
+    else{
+        const data = userModel(req.body)
+        const save = data.save()
+        res.send({message: "Signed up successfully"})
+    }
+})
 })
 app.listen(PORT, ()=> console.log("Server is running at port : " + PORT))
