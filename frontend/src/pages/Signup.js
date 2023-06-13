@@ -3,6 +3,7 @@ import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom'; 
 import {imagetoBase64} from '../utility/imagetoBase64'; 
+import { toast } from 'react-hot-toast';
 
 
 
@@ -70,9 +71,11 @@ const Signup = () => {
         body : JSON.stringify(data)
       })
       const dataRes  = await fetchData.json()
-      console.log(dataRes)
+      console.log(dataRes);
+      //alert(dataRes.message)
+      toast(dataRes.message)
 
-      alert("success")
+
     //navigate("/login")
     }
     else{
