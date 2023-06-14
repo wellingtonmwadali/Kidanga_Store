@@ -2,6 +2,8 @@ import React, {useState} from 'react'
  import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+
 
 
 const Login = () => {
@@ -40,6 +42,9 @@ const Login = () => {
     );
     const dataRes = await fetchData.json();
       console.log(dataRes)
+      toast(dataRes.message)
+
+      //success login
     }
     else{
       alert("please enter the required fields")
