@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import {BiShow,BiHide} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -15,6 +16,9 @@ const Login = () => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate()
+
   console.log(data);
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -45,10 +49,14 @@ const Login = () => {
       toast(dataRes.message)
 
       //success login
+      //navigate to homepage
+      if (dataRes.alert){
+        navigate("/")
+      } 
     }
-    else{
-      alert("please enter the required fields")
-    }
+   // else{
+     // alert("please enter the required fields")
+    //}
   }
   return (
     <div className="p-3 md:p-4">
