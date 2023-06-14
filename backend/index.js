@@ -37,6 +37,7 @@ const userModel = mongoose.model("user", userSchema)
 app.get("/",(req, res)=>{
     res.send("Server is running")
 })
+// signup api
 app.post("/signup",async(req, res)=>{
     console.log(req.body)
 //check if email is already in database or new email
@@ -45,12 +46,24 @@ app.post("/signup",async(req, res)=>{
     const result=  await userModel.findOne({email : email}).exec();
     console.log(result);
     if(result){
-        res.send({message : "Email already registered"})
+        res.send({message : "Email already registered", alert : false})
     }
     else{
         const data = userModel(req.body)
         const save = await data.save()
-        res.send({message: "Signed up successfully"})
+        res.send({message: "Signed up successfully", alert : true})
     }
 })
+
+//login api
+app.post("/login",async(req, res)=>{
+    console.log(req.body)
+    const {email} = req.body
+    const result = await userModel.findOne({email : email}).exec();
+    console.log(result);
+if (result){
+    res.send({message: "login successfull"})
+}
+})
+
 app.listen(PORT, ()=> console.log("Server is running at port : " + PORT))
