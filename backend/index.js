@@ -60,9 +60,19 @@ app.post("/login",async(req, res)=>{
     console.log(req.body)
     const {email} = req.body
     const result = await userModel.findOne({email : email}).exec();
-    console.log(result);
 if (result){
-    res.send({message: "login successfull"})
+    const dataSend = {
+      _id: result._id,
+      firstName: result.firstName,
+      lastName: result.lastName,
+      email: result.email,
+      image: result.image,
+        }
+        console.log(dataSend);
+    res.send({message: "login successfull", alert : true, data : dataSend})
+}
+else{
+    res.send({message: "Email is not registered/Please signup", alert : false})
 }
 })
 
