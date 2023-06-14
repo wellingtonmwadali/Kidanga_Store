@@ -49,9 +49,11 @@ const Login = () => {
       toast(dataRes.message)
 
       //success login
-      //navigate to homepage
+      //navigate to homepage approximately 1s
       if (dataRes.alert){
-        navigate("/")
+        setTimeout(() => {
+          navigate("/")
+        },1000);
       } 
     }
    // else{
