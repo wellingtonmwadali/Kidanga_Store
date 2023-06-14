@@ -58,31 +58,34 @@ const Signup = () => {
   */}
   console.log(process.env.REACT_APP_SERVER_DOMAIN)
   const handleSubmit = async(e) =>{
-    e.preventDefault()
-    const {firstName,lastName,email,password,confirmPassword} = data
+    e.preventDefault();
+    const { firstName, lastName, email, password, confirmPassword } = data;
     if (firstName && lastName && email && password && confirmPassword)
-    if(password === confirmPassword){
-      //callback function for fetch
-      const fetchData = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/signup`,{
-        method : "POST",
-        headers : {
-          "content-type" : "application/json"
-        },
-        body : JSON.stringify(data)
-      })
-      const dataRes  = await fetchData.json()
-      console.log(dataRes);
-      //alert(dataRes.message)
-      toast(dataRes.message)
-
-
-    //navigate("/login")
-    }
-    else{
-      alert("password and confirm password not equal")
-    }
-    else{
-      alert("please enter the required fields")
+      if (password === confirmPassword) {
+        //callback function for fetch
+        const fetchData = await fetch(
+          `${process.env.REACT_APP_SERVER_DOMAIN}/signup`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
+        const dataRes = await fetchData.json();
+        console.log(dataRes);
+        //alert(dataRes.message)
+        toast(dataRes.message);
+//navigate to login after signup
+        if (dataRes.alert) {
+          navigate("/login");
+        }
+      } else {
+        alert("password and confirm password not equal");
+      }
+    else {
+      alert("please enter the required fields");
     }
   }
   return (

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import loginAnimation from '../assets/login-animation.gif'
+ import loginAnimation from '../assets/login-animation.gif'
 import {BiShow,BiHide} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
@@ -10,11 +10,8 @@ const Login = () => {
     setShowPassword((preve) => !preve);
   };
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
   console.log(data);
   const handleOnChange = (e) => {
@@ -27,11 +24,23 @@ const Login = () => {
     });
   };
   {/**handle submit */}
-  const handleSubmit = (e) =>{
+  const handleSubmit = async(e) =>{
     e.preventDefault()
     const {email,password} = data
-    if (email && password)
-    alert("success")
+  if (email && password){
+    const fetchData = await fetch(
+      `${process.env.REACT_APP_SERVER_DOMAIN}/login`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    const dataRes = await fetchData.json();
+      console.log(dataRes)
+    }
     else{
       alert("please enter the required fields")
     }
