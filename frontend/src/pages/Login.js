@@ -4,6 +4,7 @@ import {BiShow,BiHide} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
@@ -19,7 +20,9 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  console.log(data);
+ const userData = useSelector(state => state)
+ console.log(userData)
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setData((preve) => {
