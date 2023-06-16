@@ -69,7 +69,7 @@ if (result){
       image: result.image,
         }
         console.log(dataSend);
-    res.send({message: "login successfull", alert : true, data : dataSend})
+    res.send({message: "login is successful", alert : true, data : dataSend})
 }
 else{
     res.send({message: "Email is not registered/Please signup", alert : false})
