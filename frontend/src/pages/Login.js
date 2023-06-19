@@ -57,7 +57,7 @@ const Login = () => {
         setTimeout(() => {
           navigate("/")
         },1000);
-      } 
+      }
     }
    // else{
      // alert("please enter the required fields")
