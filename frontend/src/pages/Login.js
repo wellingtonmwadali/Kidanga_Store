@@ -4,7 +4,8 @@ import {BiShow,BiHide} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector } from 'react-redux'; 
+import { loginRedux } from '../redux/userSlice';
 
 
 
@@ -19,9 +20,11 @@ const Login = () => {
   });
 
   const navigate = useNavigate()
-
+//state changes
  const userData = useSelector(state => state)
- console.log(userData)
+ console.log(userData.user)
+//send data to redux store
+ const dispatch = useDispatch()
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -54,6 +57,7 @@ const Login = () => {
       //success login
       //navigate to homepage approximately 1s
       if (dataRes.alert){
+        dispatch(loginRedux(dataRes))
         setTimeout(() => {
           navigate("/")
         },1000);
