@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import {FaRegUser} from 'react-icons/fa';
 import {BsCart4} from 'react-icons/bs'
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [showMenu, setShowMenu] =  useState(false);
@@ -36,7 +37,7 @@ const Header = () => {
           </div>
           <div className="text-1xl"onClick = {handleShowMenu}>
             <div className="border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer">
-              <FaRegUser />
+             <FaRegUser /> 
             </div>
             {showMenu && (
               <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col">
