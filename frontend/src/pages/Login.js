@@ -22,8 +22,7 @@ const Login = () => {
   const navigate = useNavigate()
 //state changes
  const userData = useSelector(state => state)
- console.log(userData.user)
-//send data to redux store
+ //send data to redux store
  const dispatch = useDispatch()
 
   const handleOnChange = (e) => {
@@ -61,11 +60,12 @@ const Login = () => {
         setTimeout(() => {
           navigate("/")
         },1000);
+        console.log(userData)
       }
     }
-   // else{
-     // alert("please enter the required fields")
-    //}
+    else{
+      alert("Please Enter required fields")
+    }
   }
   return (
     <div className="p-3 md:p-4">
