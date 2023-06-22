@@ -3,14 +3,20 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import {FaRegUser} from 'react-icons/fa';
 import {BsCart4} from 'react-icons/bs'
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutRedux } from '../redux/userSlice';
 const Header = () => {
   const [showMenu, setShowMenu] =  useState(false);
   const userData = useSelector((state)=>state.user)
   console.log(userData)
+
+  const dispatch = useDispatch()
   const handleShowMenu = () => {
     setShowMenu( preve => !preve)
+  }
+  const handleLogout = () => {
+    dispatch(logoutRedux())
+     
   }
   return (
     /*logo*/
@@ -38,14 +44,16 @@ const Header = () => {
             </div>
           </div>
           <div className="text-slate-600 "onClick = {handleShowMenu}>
-            <div className=" text-2xl p-1 cursor-pointer h-10 w-10 overflow-hiddeneeeeeeeeeeeeeeeeeeeeeee">
+            <div className=" text-2xl p-1 cursor-pointer h-10 w-10 overflow-hidden drop-shadow-md  ">
              {userData.image ? (<img src={userData.image} className="h-full w-full" />) : (<FaRegUser />)}
             </div>
             {showMenu && (
               <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col">
                <Link to={"newproduct"}className="whitespace-nowrap cursor-pointer">New Product</Link>
-                <Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link>
-              </div>
+                {
+                userData.image ? <p className = "cursor-pointer"onClick={handleLogout}>Logout</p> : <Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link>
+                }
+                </div>
             )}
           </div>
         </div>
