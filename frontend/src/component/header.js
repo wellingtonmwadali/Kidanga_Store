@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [showMenu, setShowMenu] =  useState(false);
+  const userData = useSelector((state)=>state.user)
+  console.log(userData)
   const handleShowMenu = () => {
     setShowMenu( preve => !preve)
   }
@@ -35,9 +37,9 @@ const Header = () => {
               0
             </div>
           </div>
-          <div className="text-1xl"onClick = {handleShowMenu}>
-            <div className="border-2 border-solid border-slate-500 p-1 rounded-full cursor-pointer">
-             <FaRegUser /> 
+          <div className="text-slate-600 "onClick = {handleShowMenu}>
+            <div className=" text-2xl p-1 cursor-pointer h-10 w-10 overflow-hiddeneeeeeeeeeeeeeeeeeeeeeee">
+             {userData.image ? (<img src={userData.image} className="h-full w-full" />) : (<FaRegUser />)}
             </div>
             {showMenu && (
               <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col">
