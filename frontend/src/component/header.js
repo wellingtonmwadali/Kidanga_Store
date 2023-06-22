@@ -5,6 +5,9 @@ import {FaRegUser} from 'react-icons/fa';
 import {BsCart4} from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutRedux } from '../redux/userSlice';
+import { toast } from 'react-hot-toast';
+
+
 const Header = () => {
   const [showMenu, setShowMenu] =  useState(false);
   const userData = useSelector((state)=>state.user)
@@ -16,6 +19,7 @@ const Header = () => {
   }
   const handleLogout = () => {
     dispatch(logoutRedux())
+    toast("logging out")
      
   }
   return (
@@ -44,7 +48,7 @@ const Header = () => {
             </div>
           </div>
           <div className="text-slate-600 "onClick = {handleShowMenu}>
-            <div className=" text-2xl p-1 cursor-pointer h-10 w-10 overflow-hidden drop-shadow-md  ">
+            <div className=" text-2xl p-1 cursor-pointer h-8 w-8 overflow-hidden drop-shadow-md  ">
              {userData.image ? (<img src={userData.image} className="h-full w-full" />) : (<FaRegUser />)}
             </div>
             {showMenu && (
