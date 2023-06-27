@@ -83,6 +83,7 @@ const Newproduct = () => {
           name="name"
           className="bg-slate-200 p-1 "
           onChange={handleOnChange}
+          value={data.name}
         ></input>
 
         <label htmlFor="category">Category</label>
@@ -91,6 +92,7 @@ const Newproduct = () => {
           id="category"
           name="category"
           onChange={handleOnChange}
+          value={data.category}
         >
           <option value={"other"}>select category</option>
           <option value={"fruits"}>Fruits</option>
@@ -98,7 +100,10 @@ const Newproduct = () => {
           <option value={"icecream"}>Icecream</option>
           <option value={"dosa"}>Dosa</option>
           <option value={"pizza"}>pizza</option>
-          <option value={"price"}>price</option>
+          <option value={"rice"}>rice </option>
+          <option value={"cake"}>cake</option>
+          <option value={"burger"}>burger</option>
+          <option value={"sandwich"}>sandwich</option>
         </select>
 
         <label htmlFor="image">
@@ -129,9 +134,11 @@ const Newproduct = () => {
           className="bg-slate-200 p-1 my-1 "
           name="price"
           onChange={handleOnChange}
+          value={data.price}
         />
         <label htmlFor="description">Description</label>
         <textarea
+          value={data.description}
           rows={2}
           className="bg-slate-200 p-1 my-1 resize-none"
           name="description"

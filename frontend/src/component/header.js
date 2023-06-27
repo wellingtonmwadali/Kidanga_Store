@@ -20,8 +20,9 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(logoutRedux())
     toast("logging out")
-     
+
   }
+  console.log(process.env.REACT_APP_ADMIN_EMAI)
   return (
     /*logo*/
     <header className="fixed shadow-md w-full h-14 px-2 md:px-4 bg-white">
