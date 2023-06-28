@@ -11,7 +11,7 @@ import { toast } from 'react-hot-toast';
 const Header = () => {
   const [showMenu, setShowMenu] =  useState(false);
   const userData = useSelector((state)=>state.user)
-  console.log(userData)
+  console.log(userData.email)
 
   const dispatch = useDispatch()
   const handleShowMenu = () => {
@@ -22,7 +22,7 @@ const Header = () => {
     toast("logging out")
 
   }
-  console.log(process.env.REACT_APP_ADMIN_EMAI)
+  console.log(process.env.REACT_APP_ADMIN_EMAIL)
   return (
     /*logo*/
     <header className="fixed shadow-md w-full h-14 px-2 md:px-4 bg-white">
@@ -54,9 +54,11 @@ const Header = () => {
             </div>
             {showMenu && (
               <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col">
-               <Link to={"newproduct"}className="whitespace-nowrap cursor-pointer">New Product</Link>
                 {
-                userData.image ? <p className = "cursor-pointer"onClick={handleLogout}>Logout</p> : <Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link>
+                  userData.email === process.env.REACT_APP_ADMIN_EMAIL && <Link to={"newproduct"}className="whitespace-nowrap cursor-pointer">New Product</Link>
+                }
+                {
+                userData.image ? <p className = "cursor-pointer"onClick={handleLogout}>Logout ({userData.firstName})</p> : <Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link>
                 }
                 </div>
             )}
