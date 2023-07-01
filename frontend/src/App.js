@@ -1,8 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import Header from './component/header.js';
 import toast, { Toaster } from 'react-hot-toast';
+import { useEffect } from 'react';
 
 function App() {
+  //fetch products
+  useEffect(()=>{
+    (async()=>{
+      const res = await fetch(`$process.env.REACT_APP_SERVER_DOMAIN`)
+      const resData = await res.json()
+      console.log(resData)
+    })()
+  },[])
   return (
     <>
      <Toaster />
