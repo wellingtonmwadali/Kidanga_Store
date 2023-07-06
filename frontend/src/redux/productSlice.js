@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 //products from redux store
 const initialState = {
-  productlist: [],
+  productList: [],
 };
 
 export const productSlice = createSlice({
@@ -10,7 +10,7 @@ export const productSlice = createSlice({
   reducers: {
     setDataProduct: (state, action) => {
       console.log(action);
-      state.productlist = [...action.payload];
+      state.productList = [...action.payload];
     },
   },
 });
