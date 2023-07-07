@@ -1,31 +1,30 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png';
-import {FaRegUser} from 'react-icons/fa';
-import {BsCart4} from 'react-icons/bs'
-import { useDispatch, useSelector } from 'react-redux';
-import { logoutRedux } from '../redux/userSlice';
-import { toast } from 'react-hot-toast';
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { FaRegUser } from "react-icons/fa";
+import { BsCart4 } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutRedux } from "../redux/userSlice";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
-  const [showMenu, setShowMenu] =  useState(false);
-  const userData = useSelector((state)=>state.user)
-  console.log(userData.email)
+  //admin email
+  const [showMenu, setShowMenu] = useState(false);
+  const userData = useSelector((state) => state.user);
+  console.log(userData.email);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleShowMenu = () => {
-    setShowMenu( preve => !preve)
-  }
+    setShowMenu((preve) => !preve);
+  };
   const handleLogout = () => {
-    dispatch(logoutRedux())
-    toast("logging out")
-
-  }
-  console.log(process.env.REACT_APP_ADMIN_EMAIL)
+    dispatch(logoutRedux());
+    toast("logging out");
+  };
+  console.log(process.env.REACT_APP_ADMIN_EMAIL);
   return (
     /*logo*/
-    <header className="fixed shadow-md w-full h-14 px-2 md:px-4 bg-white">
+    <header className="fixed shadow-md w-full h-14 px-2 md:px-4 bg-white ">
       {/*for desktop view */}
       <div className="flex items-center justify-between">
         <Link to={""}>
@@ -33,9 +32,9 @@ const Header = () => {
             <img src={logo} className="h-full" />
           </div>
         </Link>
-        {/*icons*/}
+        {/*desktop navigation bar*/}
         <div className="flex items-center gap-3 md:gap-6">
-          <nav className="flex gap-3 md:gap-6 text-base md:text-lg">
+          <nav className=" hidden md:flex gap-3 md:gap-6 text-base md:text-lg ">
             <Link to={""}>Home</Link>
             <Link to={"menu"}>Menu</Link>
             <Link to={"about"}>About</Link>
@@ -43,31 +42,63 @@ const Header = () => {
           </nav>
           <div className="text-2xl relative">
             <BsCart4 />
-            {/*orders*/}
+            {/*cart / user profile*/}
             <div className="absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
               0
             </div>
           </div>
-          <div className="text-slate-600 "onClick = {handleShowMenu}>
+          <div className="text-slate-600 " onClick={handleShowMenu}>
             <div className=" text-2xl p-1 cursor-pointer h-8 w-8 overflow-hidden drop-shadow-md  ">
-             {userData.image ? (<img src={userData.image} className="h-full w-full" />) : (<FaRegUser />)}
+              {userData.image ? (
+                <img src={userData.image} className="h-full w-full" />
+              ) : (
+                <FaRegUser />
+              )}
             </div>
             {showMenu && (
-              <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col">
-                {
-                  userData.email === process.env.REACT_APP_ADMIN_EMAIL && <Link to={"newproduct"}className="whitespace-nowrap cursor-pointer">New Product</Link>
-                }
-                {
-                userData.image ? <p className = "cursor-pointer"onClick={handleLogout}>Logout ({userData.firstName})</p> : <Link to={"login"}className="whitespace-nowrap cursor-pointer">Login</Link>
-                }
-                </div>
+              <div className="absolute right-2 py-2 px-2  bg-white shadow drop-shadow-md flex flex-col min-w-[150px] text-center">
+                {userData.email === process.env.REACT_APP_ADMIN_EMAIL && (
+                  <Link
+                    to={"newproduct"}
+                    className="whitespace-nowrap cursor-pointer"
+                  >
+                    New Product
+                  </Link>
+                )}
+                {userData.image ? (
+                  <p className="cursor-pointer" onClick={handleLogout}>
+                    Logout ({userData.firstName})
+                  </p>
+                ) : (
+                  <Link
+                    to={"login"}
+                    className="whitespace-nowrap cursor-pointer"
+                  >
+                    Login
+                  </Link>
+                )}
+                {/**mobile navigation */}
+                <nav className="text-base md:text-lg flex flex-col md:hidden">
+                  <Link to={""} className="px-2 py-1">
+                    Home
+                  </Link>
+                  <Link to={"menu"} className="px-2 py-1">
+                    Menu
+                  </Link>
+                  <Link to={"about"} className="px-2 py-1">
+                    About
+                  </Link>
+                  <Link to={"contact"} className="px-2 py-1">
+                    Contact
+                  </Link>
+                </nav>
+              </div>
             )}
           </div>
         </div>
       </div>
-      {/*for mobile view*/}
     </header>
   );
-}
+};
 
-export default Header
+export default Header;
