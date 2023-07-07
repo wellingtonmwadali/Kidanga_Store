@@ -1,11 +1,18 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import HomeCard from "../component/HomeCard";
+import CardFeature from "../component/CardFeature";
+import {FcNext, FcPrevious} from "react-icons/fc"
 
 const Home = () => {
+  //retrieve products from redux store
   const productData = useSelector((state) => state.product.productList);
   console.log(productData);
-  const homeProductCartList = productData.slice(0, 4);
+  const homeProductCartList = productData.slice(0, 4);//no of products to be displayed
+  const homeProductCartListVegetables = productData.filter((el)=>el.category === "vegetables",[])
+  console.log(homeProductCartListVegetables)
+  const loadingArray = new Array(4).fill(null)
+  //front end application
   return (
     <div className="p-2 md:p-4">
       <div className="md:flex gap-4 py-2">
@@ -33,7 +40,9 @@ const Home = () => {
         </div>
         <div className="md:w-1/2 flex flex-wrap gap-4  p-4 justify-center">
           {
-          homeProductCartList[0] &&
+            //mapping products retrieved from database
+            //loading template also
+          homeProductCartList[0] ?
             homeProductCartList.map((el)=>{
               return(
                <HomeCard
@@ -45,8 +54,39 @@ const Home = () => {
                category={el.category}/>
               )
             })
+            :
+            loadingArray.map((el, index)=>{
+              return(
+                <HomeCard key={index + "loading"}loading={"Loading..."} />
+              )
+            })
             }
         </div>
+      </div>
+      <div className="">
+     <div>
+     <h2 className="font-bold text-2xl text-slate-700 mb-4">Fresh Vegetables</h2>
+     <div className="">
+      <button><FcPrevious/></button>
+      <button><FcNext/></button>
+     </div>
+     </div>
+        <div className="flex gap-4 overflow-scroll">
+          {
+            homeProductCartListVegetables.map((el)=>{
+            return(
+              <CardFeature
+              key={el._id}
+              id={el._id}
+              name={el.name}
+              category={el.category}
+              price={el.price}
+              image={el.image}
+              />
+            )
+          })
+        }
+          </div>
       </div>
     </div>
   );
