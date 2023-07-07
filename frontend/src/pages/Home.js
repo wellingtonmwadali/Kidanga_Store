@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import HomeCard from "../component/HomeCard";
 import CardFeature from "../component/CardFeature";
@@ -14,11 +14,12 @@ const Home = () => {
   const loadingArray = new Array(4).fill(null)
   const loadingArrayFeature = new Array(5).fill(null)
   //next / previous 
+  const slideProductRef = useRef()
   const nextProduct =()=>{
-
+    slideProductRef.current.scrollLeft += 200;
   }
   const preveProduct =()=>{
-    
+    slideProductRef.current.scrollLeft -= 200;
   }
   //front end application
   return (
@@ -75,11 +76,15 @@ const Home = () => {
      <div className="w-full flex items-center">
      <h2 className="font-bold text-2xl text-slate-700 mb-4">Fresh Vegetables</h2>
      <div className="ml-auto flex gap-3">
-      <button className="bg-slate-300 hover:bg-slate-400  text-lg p-1 rounded"><FcPrevious/></button>
-      <button className="bg-slate-300 hover:bg-slate-400  text-lg p-1 rounded"><FcNext/></button>
+      <button onClick= {preveProduct} className="bg-slate-300 hover:bg-slate-400  text-lg p-1 rounded">
+        <FcPrevious/>
+      </button>
+      <button onClick={nextProduct} className="bg-slate-300 hover:bg-slate-400  text-lg p-1 rounded">
+        <FcNext/>
+      </button>
      </div>
      </div>
-        <div className="flex gap-4 overflow-scroll scrollbar-none">
+        <div className="flex gap-4 overflow-scroll scrollbar-none scroll-smooth transition-all" ref={slideProductRef}>
           {
            homeProductCartListVegetables[0] ? homeProductCartListVegetables.map((el)=>{
             return(
