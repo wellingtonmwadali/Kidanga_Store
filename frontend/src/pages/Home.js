@@ -12,6 +12,14 @@ const Home = () => {
   const homeProductCartListVegetables = productData.filter((el)=>el.category === "vegetables",[])
   console.log(homeProductCartListVegetables)
   const loadingArray = new Array(4).fill(null)
+  const loadingArrayFeature = new Array(5).fill(null)
+  //next / previous 
+  const nextProduct =()=>{
+
+  }
+  const preveProduct =()=>{
+    
+  }
   //front end application
   return (
     <div className="p-2 md:p-4">
@@ -41,7 +49,7 @@ const Home = () => {
         <div className="md:w-1/2 flex flex-wrap gap-4  p-4 justify-center">
           {
             //mapping products retrieved from database
-            //loading template also
+            //loading props
           homeProductCartList[0] ?
             homeProductCartList.map((el)=>{
               return(
@@ -64,16 +72,16 @@ const Home = () => {
         </div>
       </div>
       <div className="">
-     <div>
+     <div className="w-full flex items-center">
      <h2 className="font-bold text-2xl text-slate-700 mb-4">Fresh Vegetables</h2>
-     <div className="">
-      <button><FcPrevious/></button>
-      <button><FcNext/></button>
+     <div className="ml-auto flex gap-3">
+      <button className="bg-slate-300 hover:bg-slate-400  text-lg p-1 rounded"><FcPrevious/></button>
+      <button className="bg-slate-300 hover:bg-slate-400  text-lg p-1 rounded"><FcNext/></button>
      </div>
      </div>
-        <div className="flex gap-4 overflow-scroll">
+        <div className="flex gap-4 overflow-scroll scrollbar-none">
           {
-            homeProductCartListVegetables.map((el)=>{
+           homeProductCartListVegetables[0] ? homeProductCartListVegetables.map((el)=>{
             return(
               <CardFeature
               key={el._id}
@@ -85,6 +93,8 @@ const Home = () => {
               />
             )
           })
+          :
+          loadingArrayFeature.map((el)=><CardFeature loading = "Loading..."/>)
         }
           </div>
       </div>
