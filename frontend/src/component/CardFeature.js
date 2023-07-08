@@ -3,7 +3,7 @@ import React from 'react'
 //loading props
 const CardFeature = ({image, name, price, category, loading}) => {
   return (
-    <div className="w-full  min-w-[180px] bg-white hover:shadow-lg drop-shadow-lg py-3 px-4 cursor-pointer flex flex-col">
+    <div className="w-full  min-w-[180px] max-w-[180px] bg-white hover:shadow-lg drop-shadow-lg py-3 px-4 cursor-pointer flex flex-col">
       {
         image ? <>
         <div className="h-24 flex flex-col justify-center items-center">

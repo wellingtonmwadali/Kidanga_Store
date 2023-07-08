@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import HomeCard from "../component/HomeCard";
 import CardFeature from "../component/CardFeature";
 import {FcNext, FcPrevious} from "react-icons/fc"
+import FilterProduct from "../component/FilterProduct";
+
 
 const Home = () => {
   //retrieve products from redux store
@@ -20,6 +22,23 @@ const Home = () => {
   }
   const preveProduct =()=>{
     slideProductRef.current.scrollLeft -= 200;
+  }
+  //categories for other products
+  const categoryList = [...new Set(productData.map(el=>el.category))]
+  console.log(categoryList)
+//products filter
+   const [filterby, setFilterBy] = useState("")
+   const [dataFilter, setDataFilter] = useState([])
+   useEffect(()=>{
+    setDataFilter(productData)
+   },[productData])
+   const  handleFilterProduct = (category) =>{
+    const filter = productData.filter(el => el.category.toLowerCase()=== category.toLowerCase())
+    setDataFilter(()=>{ 
+    return[
+      ...filter
+    ]
+  })
   }
   //front end application
   return (
@@ -102,6 +121,31 @@ const Home = () => {
           loadingArrayFeature.map((el)=><CardFeature loading = "Loading..."/>)
         }
           </div>
+      </div>
+      {/**other products */}
+      <div className="my-4">
+      <h2 className="font-bold text-2xl text-slate-700 mb-4">Your Product</h2>
+      <div className="flex gap-4 justify-center overflow-scroll scrollbar-none">
+        {
+          categoryList[0] && categoryList.map(el=>{
+            return( <FilterProduct category={el} onClick={()=> handleFilterProduct(el)}/>)})
+        }
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-5">
+          {
+            dataFilter.map(el=>{
+              return(
+                 <CardFeature
+              key={el._id}
+              name={el.name}
+              category={el.category}
+              price={el.price}
+              image={el.image}/>
+              )
+            })
+          }
+      </div>
       </div>
     </div>
   );
