@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //loading props
 const CardFeature = ({ image, name, price, category, loading, id}) => {
   return (
-    <div className="w-full  min-w-[180px] max-w-[180px] bg-white hover:shadow-lg drop-shadow-lg py-3 px-4 cursor-pointer flex flex-col">
+    <div className="w-full  min-w-[235px] max-w-[235px] bg-white hover:shadow-lg drop-shadow-lg py-3 px-4 cursor-pointer flex flex-col">
       {image ? (
         <>
           <Link to={`menu/${id}`}>

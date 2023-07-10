@@ -9,7 +9,7 @@ const Menu = () => {
   console.log(productDisplay);
   //test case for productDisplay
   if (!productDisplay) {
-    return <div>Product not found.</div>;
+    return <div>Products are loading.</div>;
   }
   return (
     <div className="p-2 md:py-4">
