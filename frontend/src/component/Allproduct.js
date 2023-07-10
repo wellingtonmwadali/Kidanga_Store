@@ -28,7 +28,7 @@ const Allproduct = ({heading}) => {
       <div className="flex gap-4 justify-center overflow-scroll scrollbar-none">
         {
           categoryList[0] ? categoryList.map(el=>{
-            return( <FilterProduct category={el} onClick={()=> handleFilterProduct(el)}/>)})
+            return( <FilterProduct category={el} onClick={()=> handleFilterProduct(el)} key={el}/>)})
             : (
             <div className="min-h-[110px] flex justify-center items-center">
             <p>loading...</p>
@@ -50,7 +50,7 @@ const Allproduct = ({heading}) => {
               )
             })
             :
-              loadingArrayFeature.map((el)=><CardFeature loading = "Loading..."/>)
+              loadingArrayFeature.map((el, index)=><CardFeature loading = "Loading..." key={index}/>)
           }
       </div>
       </div>

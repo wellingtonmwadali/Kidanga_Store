@@ -91,7 +91,7 @@ const Home = () => {
      </div>
         <div className="flex gap-4 overflow-scroll scrollbar-none scroll-smooth transition-all" ref={slideProductRef}>
           {
-           homeProductCartListVegetables[0] ? homeProductCartListVegetables.map((el)=>{
+           homeProductCartListVegetables[0] ? homeProductCartListVegetables.map((el,)=>{
             return(
               <CardFeature
               key={el._id}
@@ -104,7 +104,7 @@ const Home = () => {
             )
           })
           :
-          loadingArrayFeature.map((el)=><CardFeature loading = "Loading..."/>)
+          loadingArrayFeature.map((el, index)=><CardFeature loading = "Loading..."key={index}/>)
         }
           </div>
       </div>
