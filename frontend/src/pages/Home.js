@@ -138,6 +138,7 @@ const Home = () => {
               return(
                  <CardFeature
               key={el._id}
+              id={el._id}
               name={el.name}
               category={el.category}
               price={el.price}
