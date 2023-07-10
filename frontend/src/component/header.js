@@ -41,11 +41,13 @@ const Header = () => {
             <Link to={"contact"}>Contact</Link>
           </nav>
           <div className="text-2xl relative">
+            <Link to={"cart"}>
             <BsCart4 />
             {/*cart / user profile*/}
             <div className="absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
               0
             </div>
+            </Link>
           </div>
           <div className="text-slate-600 " onClick={handleShowMenu}>
             <div className=" text-2xl p-1 cursor-pointer h-8 w-8 overflow-hidden drop-shadow-md  ">
