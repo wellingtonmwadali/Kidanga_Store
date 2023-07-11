@@ -7,9 +7,15 @@ import { addCartItems } from "../redux/productSlice";
 //other products(vegetables) display
 //loading props
 const CardFeature = ({ image, name, price, category, loading, id}) => {
-  const dispatch = useDispatch()
+const dispatch = useDispatch()
 const addCartProduct =(e)=>{
-  dispatch(addCartItems(id))
+  dispatch(addCartItems(  {
+    _id : id,
+    name : name,
+    price : price,
+    category: category,
+    image : image
+  }))
   alert("ooo")
 }
   return (

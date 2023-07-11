@@ -14,6 +14,7 @@ export const productSlice = createSlice({
       state.productList = [...action.payload];
     },
     addCartItems: (state, action)=>{
+      console.log(action);
 
     },
     deleteCartItems: (state, action)=>{
