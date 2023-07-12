@@ -11,7 +11,6 @@ const Header = () => {
   //admin email
   const [showMenu, setShowMenu] = useState(false);
   const userData = useSelector((state) => state.user);
-  console.log(userData.email);
 
   const dispatch = useDispatch();
   const handleShowMenu = () => {
@@ -22,6 +21,7 @@ const Header = () => {
     toast("logging out");
   };
   console.log(process.env.REACT_APP_ADMIN_EMAIL);
+  const cartItemNumber = useSelector((state)=>state.product.cartItem)
   return (
     /*logo*/
     <header className="fixed shadow-md w-full h-14 px-2 md:px-4 bg-white ">
@@ -45,7 +45,7 @@ const Header = () => {
             <BsCart4 />
             {/*cart / user profile*/}
             <div className="absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
-              0
+              {cartItemNumber.length}
             </div>
             </Link>
           </div>

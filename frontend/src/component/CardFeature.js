@@ -16,7 +16,6 @@ const addCartProduct =(e)=>{
     category: category,
     image : image
   }))
-  alert("ooo")
 }
   return (
     <div className="w-full  min-w-[235px] max-w-[235px] bg-white hover:shadow-lg drop-shadow-lg py-3 px-4 cursor-pointer flex flex-col">

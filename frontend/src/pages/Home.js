@@ -9,10 +9,9 @@ import Allproduct from "../component/Allproduct";
 const Home = () => {
   //retrieve products from redux store
   const productData = useSelector((state) => state.product.productList);
-  console.log(productData);
+
   const homeProductCartList = productData.slice(0, 4);//no of products to be displayed
   const homeProductCartListVegetables = productData.filter((el)=>el.category === "vegetables",[])
-  console.log(homeProductCartListVegetables)
   const loadingArray = new Array(4).fill(null)
   const loadingArrayFeature = new Array(5).fill(null)
   //next / previous 

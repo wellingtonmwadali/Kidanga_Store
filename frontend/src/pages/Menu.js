@@ -1,16 +1,23 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Allproduct from "../component/Allproduct";
+import { addCartItems } from "../redux/productSlice";
 
 const Menu = () => {
   const { filterby } = useParams();
   const productData = useSelector((state) => state.product.productList);
+  const dispatch = useDispatch();
   const productDisplay = productData.filter((el) => el._id === filterby)[0];
   console.log(productDisplay);
   //test case for productDisplay
   if (!productDisplay) {
-    return <div>Products are loading.</div>;
+    return("Products are loading.");
+  }
+  //add to cart in menu
+  
+  const addCartProduct =(e)=>{
+    dispatch(addCartItems(productDisplay))
   }
   return (
     <div className="p-2 md:py-4">
@@ -35,7 +42,7 @@ const Menu = () => {
             <button className="bg-yellow-300 hover:bg-yellow-600 text-white font-bold min-w-[100px] p-1">
               Buy Now
             </button>
-            <button className="bg-yellow-300 hover:bg-yellow-600 text-white font-bold min-w-[100px] p-1">
+            <button onClick={addCartProduct} className ="bg-yellow-300 hover:bg-yellow-600 text-white font-bold min-w-[100px] p-1">
               Add Cart
             </button>
           </div>

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 //products from redux store
 const initialState = {
   productList: [],
-  cartList: []
+  cartItem: []
 };
 
 export const productSlice = createSlice({
@@ -10,11 +10,12 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     setDataProduct: (state, action) => {
-      console.log(action);
       state.productList = [...action.payload];
     },
     addCartItems: (state, action)=>{
-      console.log(action);
+      console.log(action)
+      const total = action.payload.price
+      state.cartItem = [...state.cartItem, {...action.payload, qty : 1, total : total}]
 
     },
     deleteCartItems: (state, action)=>{
