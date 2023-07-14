@@ -8,7 +8,7 @@ import CartProduct from '../component/CartProduct'
   console.log(productCartItem)
   return (
     <div>
-        <h2 className='text-lg md:text-2xl font-bold p-2 text-slate-500'>Your Cart Products</h2>
+        <h2 className='text-lg md:text-3xl font-bold p-2 text-slate-500 flex justify-center'>Cart Products</h2>
         <div className=''></div>
         {/**display cart products*/}
     <div className='w-full max-w-2xl my-4 rounded '>
