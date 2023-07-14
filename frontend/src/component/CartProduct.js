@@ -2,7 +2,7 @@ import React from 'react'
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import {AiFillDelete} from 'react-icons/ai'
 import { useDispatch } from 'react-redux';
-import { deleteCartItems } from '../redux/productSlice';
+import { deleteCartItems, increaseQty, decreaseQty } from '../redux/productSlice';
 
 //cart product checkout->increase or decrease no of products or delete products
 //deals with products in the card page
@@ -28,11 +28,11 @@ const CartProduct = ({ id, name, image, category, price, qty, total }) => {
         <div className='flex justify-between'>
           <div className=" flex gap-3 items-center">
             {/**add or reduce products */}
-            <button className="bg-slate-300 hover:bg-yellow-600 text-white font-bold p-1">
+            <button className="bg-slate-300 hover:bg-yellow-600 text-white font-bold p-1" onClick={()=>dispatch(increaseQty(id))}>
               <AiOutlinePlus />
             </button>
             <p>{qty}</p>
-            <button className="bg-slate-300 hover:bg-yellow-600 text-white font-bold p-1">
+            <button className="bg-slate-300 hover:bg-yellow-600 text-white font-bold p-1"onClick={()=>dispatch(decreaseQty(id))}>
               <AiOutlineMinus />
             </button>
           </div>
