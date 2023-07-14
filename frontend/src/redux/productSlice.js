@@ -1,4 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, findNonSerializableValue } from "@reduxjs/toolkit";
+import { toast } from "react-hot-toast";
+
 //products from redux store
 const initialState = {
   productList: [],
@@ -19,9 +21,20 @@ export const productSlice = createSlice({
 
     },
     deleteCartItems: (state, action)=>{
+      console.log(action.payload)
+      toast("Item removed from cart")
+      const index = state.cartItem.findIndex((el)=> el._id === action.payload)
+      state.cartItem.splice(index,1)
+      console.log(index)
+
+    },
+    increaseQty: (state,action)=>{
+
+    },
+    decreaseQty:(state,action)=>{
 
     }
   },
 });
-export const { setDataProduct, addCartItems, deleteCartItems } = productSlice.actions;
+export const { setDataProduct, addCartItems, deleteCartItems, increaseQty, decreaseQty } = productSlice.actions;
 export default productSlice.reducer;

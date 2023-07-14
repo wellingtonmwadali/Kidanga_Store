@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { addCartItems } from "../redux/productSlice";
 
 
-//other products(vegetables) display
+//component to display other products(vegetables) display
 //loading props
 const CardFeature = ({ image, name, price, category, loading, id}) => {
 const dispatch = useDispatch()

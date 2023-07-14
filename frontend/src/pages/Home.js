@@ -5,6 +5,7 @@ import CardFeature from "../component/CardFeature";
 import {FcNext, FcPrevious} from "react-icons/fc"
 import Allproduct from "../component/Allproduct";
 
+//This is the homepage
 
 const Home = () => {
   //retrieve products from redux store

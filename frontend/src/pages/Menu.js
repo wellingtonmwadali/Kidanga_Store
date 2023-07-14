@@ -12,7 +12,7 @@ const Menu = () => {
   console.log(productDisplay);
   //test case for productDisplay
   if (!productDisplay) {
-    return("Products are loading.");
+    return( "Products are loading...");
   }
   //add to cart in menu
   
