@@ -3,6 +3,8 @@ import FilterProduct from './FilterProduct'
 import CardFeature from './CardFeature'
 import { useSelector } from 'react-redux';
 
+
+//This file consists of the all products section in homepage
 const Allproduct = ({heading}) => {
     const productData = useSelector((state) => state.product.productList);
     //categories for other products
@@ -13,6 +15,7 @@ const Allproduct = ({heading}) => {
    setDataFilter(productData)
   },[productData])
   const  handleFilterProduct = (category) =>{
+    setFilterBy(category)
    const filter = productData.filter(el => el.category.toLowerCase()=== category.toLowerCase())
    setDataFilter(()=>{ 
    return[
@@ -28,7 +31,12 @@ const Allproduct = ({heading}) => {
       <div className="flex gap-4 justify-center overflow-scroll scrollbar-none">
         {
           categoryList[0] ? categoryList.map(el=>{
-            return( <FilterProduct category={el} onClick={()=> handleFilterProduct(el)} key={el}/>)})
+            return( 
+            <FilterProduct 
+            category={el} onClick={()=> handleFilterProduct(el)} 
+            key={el}
+            isActive= {el.toLowerCase() === filterby.toLowerCase()}
+            />)})
             : (
             <div className="min-h-[110px] flex justify-center items-center">
             <p>loading...</p>

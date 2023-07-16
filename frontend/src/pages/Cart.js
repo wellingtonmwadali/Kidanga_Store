@@ -1,20 +1,25 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import CartProduct from '../component/CartProduct'
+import React from "react";
+import { useSelector } from "react-redux";
+import CartProduct from "../component/CartProduct";
+import emptyCart from "../assets/empty.gif"
 
-//page for the cart products page 
-  const Cart = () => {
-  const productCartItem = useSelector((state)=>state.product.cartItem)
-  console.log(productCartItem)
+//page for the cart products page
+const Cart = () => {
+  const productCartItem = useSelector((state) => state.product.cartItem);
+  console.log(productCartItem);
+  const totalPrice = productCartItem.reduce((acc, curr)=>acc + parseInt(curr.total),0)
+  const totalQty = productCartItem.reduce((acc, curr)=>acc + parseInt(curr.qty),0)
   return (
     <div>
-        <h2 className='text-lg md:text-3xl font-bold p-2 text-slate-500 flex justify-center'>Cart Products</h2>
-        <div className=''></div>
-        {/**display cart products*/}
-    <div className='w-full max-w-2xl my-4 rounded '>
-      {
-        productCartItem.map(el=>{
-          return(
+      <h2 className="text-lg md:text-3xl font-bold p-2 text-slate-500 flex justify-center">
+        Cart Products
+      </h2>
+      {productCartItem[0] ?
+      <div className="md:flex gap-5">
+      {/**display cart products*/}
+      <div className="w-full max-w-2xl my-4 rounded ">
+        {productCartItem.map((el) => {
+          return (
             <CartProduct
               key={el._id}
               id={el._id}
@@ -22,15 +27,40 @@ import CartProduct from '../component/CartProduct'
               name={el.name}
               price={el.price}
               category={el.category}
-              qty= {el.qty}
-              total={el.total}/>
-          )
-        })
-      }
-    </div>
-    </div>
-    
-  )
+              qty={el.qty}
+              total={el.total}
+            />
+          );
+        })}
+      </div>
+      {/**cart summary */}
+      <div className="my-2 p-2 ml-auto w-full max-w-md">
+        <h2 className="flex justify-center text-xl text-orange-500 font-bold bg-white ">Cart Summary</h2>
+        <div className="text-lg px-2 mt-3 flex border-b ">
+          <p >Total Qty:</p>
+          <p className="ml-auto font-bold w-28">{totalQty}</p>
+        </div>
+        <div className="text-lg px-2 mt-3 flex border-b">
+          <p>Total Price:</p>
+          <p className="ml-auto font-bold w-28">{totalPrice}<span className="text-red-500">$</span></p>
+        </div>
+        <div className="flex justify-center">
+        <button className="bg-yellow-300 hover:bg-orange-600 text-white font-bold py-1 px-2 mt-2 w-48">
+          Payment
+        </button>
+        </div>
+      </div>
+      </div>
+ :
+<>
+ <div className="flex justify-center items-center">
+  <img src={emptyCart} className="w-full max-w-sm"/>
+ </div>
+</>
 }
 
-export default Cart
+    </div>
+  );
+};
+
+export default Cart;
