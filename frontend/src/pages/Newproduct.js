@@ -3,6 +3,7 @@ import { BsUpload } from "react-icons/bs";
 import { imagetoBase64 } from "../utility/imagetoBase64";
 import { toast } from "react-hot-toast";
 
+//This file deals with uploading of products to the database and its front end view{admin}
 const Newproduct = () => {
   const [data, setData] = useState({
     name: "",

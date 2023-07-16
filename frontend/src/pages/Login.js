@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector } from 'react-redux'; 
 import { loginRedux } from '../redux/userSlice';
 
-
+//This file contains the login section
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);

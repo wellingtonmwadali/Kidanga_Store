@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Allproduct from "../component/Allproduct";
 import { addCartItems } from "../redux/productSlice";
 
+//This file contains the menu page
 const Menu = () => {
   const { filterby } = useParams();
   const productData = useSelector((state) => state.product.productList);
@@ -12,13 +13,17 @@ const Menu = () => {
   console.log(productDisplay);
   //test case for productDisplay
   if (!productDisplay) {
-    return( <div className="flex justify-center items-center h-screen font-bold text-2xl text-orange-600">Products are loading...</div>);
+    return (
+      <div className="flex justify-center items-center h-screen font-bold text-2xl text-orange-600">
+        Products are loading...
+      </div>
+    );
   }
   //add to cart in menu
-  
-  const addCartProduct =(e)=>{
-    dispatch(addCartItems(productDisplay))
-  }
+
+  const addCartProduct = (e) => {
+    dispatch(addCartItems(productDisplay));
+  };
   return (
     <div className="p-2 md:py-4">
       <div className="w-full max-w-3xl bg-white m-auto md:flex">
@@ -42,7 +47,10 @@ const Menu = () => {
             <button className="bg-yellow-300 hover:bg-yellow-600 text-white font-bold min-w-[100px] p-1">
               Buy Now
             </button>
-            <button onClick={addCartProduct} className ="bg-yellow-300 hover:bg-yellow-600 text-white font-bold min-w-[100px] p-1">
+            <button
+              onClick={addCartProduct}
+              className="bg-yellow-300 hover:bg-yellow-600 text-white font-bold min-w-[100px] p-1"
+            >
               Add Cart
             </button>
           </div>
@@ -52,10 +60,9 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <Allproduct heading={"Related Products"}/>
+      <Allproduct heading={"Related Products"} />
     </div>
-    
   );
 };
 
-export default Menu
+export default Menu;

@@ -15,7 +15,7 @@ import { store } from './redux/index';
 import { Provider } from "react-redux";
 import Cart from './pages/Cart';
 
-{/*route links*/}
+// this file deals with the routes 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path = '/' element = {<App/>}>

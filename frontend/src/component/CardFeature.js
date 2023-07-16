@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { addCartItems } from "../redux/productSlice";
 
 
-//component to display other products(vegetables) display
+//This file deals with displaying other products(vegetables) in the home page
 //loading props
 const CardFeature = ({ image, name, price, category, loading, id}) => {
 const dispatch = useDispatch()

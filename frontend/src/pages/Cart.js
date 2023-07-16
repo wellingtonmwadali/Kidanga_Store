@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import CartProduct from "../component/CartProduct";
 import emptyCart from "../assets/empty.gif"
 
-//page for the cart products page
+//This contains the file for the cart products page
 const Cart = () => {
   const productCartItem = useSelector((state) => state.product.cartItem);
   console.log(productCartItem);

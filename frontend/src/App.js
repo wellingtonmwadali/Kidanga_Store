@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { setDataProduct } from './redux/productSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
 
-
+//This is the index file
 
 function App() {
   //fetch products

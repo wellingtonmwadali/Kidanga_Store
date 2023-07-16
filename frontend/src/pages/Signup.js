@@ -5,9 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { imagetoBase64 } from "../utility/imagetoBase64";
 import { toast } from "react-hot-toast";
 
-{
-  /*show password/hide password*/
-}
+// This file deals with the sign up form -> must include image
 const Signup = () => {
   //handle show password
   const navigate = useNavigate();

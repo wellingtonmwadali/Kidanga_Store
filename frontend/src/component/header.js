@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
 import { toast } from "react-hot-toast";
 
+// This file deals with header section of the web application
+
 const Header = () => {
   //admin email
   const [showMenu, setShowMenu] = useState(false);
@@ -43,7 +45,7 @@ const Header = () => {
           <div className="text-2xl relative">
             <Link to={"cart"}>
             <BsCart4 />
-            {/*cart / user profile*/}
+            {/* user profile*/}
             <div className="absolute -top-2 -right-1 text-white bg-red-600 h-4 w-4 rounded-full m-0 p-0 text-sm text-center">
               {cartItemNumber.length}
             </div>

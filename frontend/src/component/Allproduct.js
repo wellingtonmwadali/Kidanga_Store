@@ -4,7 +4,7 @@ import CardFeature from './CardFeature'
 import { useSelector } from 'react-redux';
 
 
-//This file consists of the all products section in homepage
+//This file consists of the all products
 const Allproduct = ({heading}) => {
     const productData = useSelector((state) => state.product.productList);
     //categories for other products
