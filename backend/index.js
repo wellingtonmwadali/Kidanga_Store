@@ -57,7 +57,6 @@ app.post("/signup", async (req, res) => {
 
 //login api
 app.post("/login", async (req, res) => {
-  console.log(req.body);
   const { email } = req.body;
   const result = await userModel.findOne({ email: email }).exec();
   if (result) {
@@ -86,10 +85,6 @@ const schemaProduct = mongoose.Schema({
   price: String,
   description: String,
 });
-
-// Add indexes
-//schemaProduct.index({ name: 1 });
-//schemaProduct.index({ category: 1 });
 
 const productModel = mongoose.model("product", schemaProduct);
 
