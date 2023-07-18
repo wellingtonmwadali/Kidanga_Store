@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { reset } = require("nodemon");
 const dotenv = require("dotenv").config();
+const Stripe = require("stripe");
 
 //express api
 const app = express();
@@ -103,4 +104,43 @@ app.get("/product", async(req, res) => {
   res.send(JSON.stringify(data))
 })
 
+//payment-gateway api
+//console.log((process.env.STRIPE_SECERET_KEY))
+const stripe = new Stripe(process.env.STRIPE_SECERET_KEY)
+app.post("/payment-gateway", async(req,res)=>{
+  console.log(req.body)
+  try {
+  const params = {
+    submit_type : "pay",
+    mode : "payment",
+    payment_method_types : ['card'],
+    billing_address_collection: "auto",
+    shipping_options : [{shipping_rate : "shr_1NVApEHeneEHcTX4Nx9tRyDU"}],
+
+    line_items : req.body.map((item)=>{
+    return{
+      price_data : {
+        currency : "$",
+        product_data : {
+          name : item.name,
+          images : [item.image]
+        },
+        unit_amount : item.price * 100,
+      },
+      adjustable_quantity : {
+        enabled : true,
+        minimum : 1,
+      },
+      quantity : item.qty
+    }
+  }),
+  success_url :  `${process.env.FRONTEND_URL}/success`,
+  cancel_url :  `${process.env.FRONTEND_URL}/cancel`,
+  }
+  const session = await stripe.checkout.session.create(params)
+  res.status(200).json(session_id)
+  } catch (error) {
+    res.status(error.statusCode || 500).json(error.message)
+  }
+})
 app.listen(PORT, () => console.log("Server is running at port : " + PORT));
