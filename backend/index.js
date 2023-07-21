@@ -105,13 +105,13 @@ app.get("/product", async(req, res) => {
 })
 
 //payment-gateway api
-//console.log((process.env.STRIPE_SECERET_KEY))
-const stripe = new Stripe(process.env.STRIPE_SECERET_KEY)
-app.post("/payment-gateway", async(req,res)=>{
-  console.log(req.body)
+//console.log((process.env.STRIPE_SECRET_KEY))
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+app.post("/payment", async(req,res)=>{
+  //console.log(req.body)
   try {
   const params = {
-    submit_type : "pay",
+    submit_type : 'pay',
     mode : "payment",
     payment_method_types : ['card'],
     billing_address_collection: "auto",
@@ -119,11 +119,10 @@ app.post("/payment-gateway", async(req,res)=>{
 
     line_items : req.body.map((item)=>{
     return{
-      price_data : {
-        currency : "$",
+        price_data : {
+        currency : "usd",
         product_data : {
-          name : item.name,
-          images : [item.image]
+        name : item.name,
         },
         unit_amount : item.price * 100,
       },
@@ -134,13 +133,16 @@ app.post("/payment-gateway", async(req,res)=>{
       quantity : item.qty
     }
   }),
-  success_url :  `${process.env.FRONTEND_URL}/success`,
-  cancel_url :  `${process.env.FRONTEND_URL}/cancel`,
+  success_url : `${process.env.FRONTEND_URL}/success`,
+  cancel_url : `${process.env.FRONTEND_URL}/cancel`,
   }
-  const session = await stripe.checkout.session.create(params)
-  res.status(200).json(session_id)
-  } catch (error) {
+  const session = await stripe.checkout.sessions.create(params)
+  res.status(200).json(session.id)
+  }
+  catch (error) {
     res.status(error.statusCode || 500).json(error.message)
   }
 })
+
+
 app.listen(PORT, () => console.log("Server is running at port : " + PORT));
