@@ -14,7 +14,7 @@ const Menu = () => {
   //test case for productDisplay
   if (!productDisplay) {
     return (
-      <div className="flex justify-center items-center h-screen font-bold text-2xl text-orange-600">
+      <div className="flex justify-center mt-10  font-bold text-2xl text-orange-600">
         Products are loading...
       </div>
     );
