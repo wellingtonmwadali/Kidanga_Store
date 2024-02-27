@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from './component/header.js';
-import toast, { Toaster } from 'react-hot-toast';
+import  { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import { setDataProduct } from './redux/productSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function App() {
   //fetch products
   const dispatch = useDispatch();
-  const productData = useSelector((state) => state.product);
+  // const productData = useSelector((state) => state.product);
   useEffect(() => {
     (async () => {
       const res = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/product`);
