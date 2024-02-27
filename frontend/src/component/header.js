@@ -31,7 +31,7 @@ const Header = () => {
       <div className="flex items-center justify-between">
         <Link to={""}>
           <div className="h-10">
-            <img src={logo} className="h-full" />
+            <img src={logo} alt = 'company logo'className="h-full" />
           </div>
         </Link>
         {/*desktop navigation bar*/}
