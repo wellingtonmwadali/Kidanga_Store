@@ -54,7 +54,7 @@ const Header = () => {
           <div className="text-slate-600 " onClick={handleShowMenu}>
             <div className=" text-2xl p-1 cursor-pointer h-8 w-8 overflow-hidden drop-shadow-md  ">
               {userData.image ? (
-                <img src={userData.image} className="h-full w-full" />
+                <img src={userData.image} alt= "" className="h-full w-full" />
               ) : (
                 <FaRegUser />
               )}
