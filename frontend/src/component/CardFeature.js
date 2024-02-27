@@ -23,7 +23,9 @@ const addCartProduct =(e)=>{
         <>
           <Link to={`/menu/${id}`} onClick={window.scrollTo({top:"0",behavior:"smooth"})}>
             <div className="h-24 flex flex-col justify-center items-center">
-              <img src={image} className="h-full" />
+              <img src={image}
+               alt = ""
+              className="h-full" />
             </div>
             <h3 className="font-semibold text-slate-600 capitalize text-lg text-center mt-2 whitespace-nowrap overflow-hidden">
               {name}
