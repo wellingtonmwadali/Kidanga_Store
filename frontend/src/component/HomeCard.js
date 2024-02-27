@@ -13,7 +13,7 @@ const HomeCard = ({ name, image, category, price, loading, id }) => {
             onClick={window.scrollTo({ top: "0", behavior: "smooth" })}
           >
             <div className="w-40 min-h-[150px]">
-              <img src={image} className="w-full h-full" />
+              <img src={image} alt = "" className="w-full h-full" />
             </div>
             <h3 className="font-semibold text-slate-600 text-center capitalize text-lg">
               {name}
