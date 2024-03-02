@@ -1,69 +1,60 @@
-# Getting Started with Create React App
+# Kidanga Online Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Kidanga is an online store built using the MERN (MongoDB, Express.js, React.js, Node.js) stack, offering a seamless user experience for purchasing fresh fruits, vegetables and other products.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User-Friendly Interface**: Kidanga provides an intuitive interface, allowing users to browse through a wide selection of fresh produce with ease.
+- **Seamless Checkout Process**: Integrated Stripe payment functionality ensures a smooth and secure checkout process, enhancing user satisfaction.
+- **Responsive Design**: The online store is designed to be responsive across various devices, providing a consistent experience for users on desktop and mobile platforms.
+- **Product Categories**: Kidanga organizes products into categories, making it simple for users to find what they need quickly and efficiently.
+- **Dynamic Search**: Users can utilize the search functionality to find specific fruits and vegetables, streamlining the shopping experience.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone https://github.com/wellingtonmwadali/kidanga_store.git
+```
 
-### `npm test`
+2. Navigate to the project directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+cd kidanga
+```
 
-### `npm run build`
+3. Install dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Set up environment variables:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Create a `.env` file in the root directory and add the following environment variables:
 
-### `npm run eject`
+```
+PORT=5000
+MONGODB_URI=your_mongodb_uri
+STRIPE_SECRET_KEY=your_stripe_secret_key
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Run the application:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. Open your browser and navigate to `http://localhost:5000` to view the Kidanga online store.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
 
-## Learn More
+Contributions are welcome! Feel free to open an issue or submit a pull request to suggest new features, report bugs, or make improvements to the codebase.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
