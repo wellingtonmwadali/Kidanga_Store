@@ -21,7 +21,7 @@ git clone https://github.com/wellingtonmwadali/kidanga_store.git
 2. Navigate to the project directory:
 
 ```bash
-cd kidanga
+cd frontend / backend
 ```
 
 3. Install dependencies:
